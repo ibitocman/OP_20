@@ -23,8 +23,8 @@ export class MyToken extends DeployableOP_20 {
     public override onDeployment(_calldata: Calldata): void {
         const maxSupply: u256 = u256.fromString('1000000000000000000000000000'); // Your max supply. (Here, 1 billion tokens)
         const decimals: u8 = 18; // Your decimals.
-        const name: string = 'Test'; // Your token name.
-        const symbol: string = 'TEST'; // Your token symbol.
+        const name: string = 'ibitocmn'; // Your token name.
+        const symbol: string = 'IBI'; // Your token symbol.
 
         this.instantiate(new OP20InitParameters(maxSupply, decimals, name, symbol));
 
@@ -75,7 +75,7 @@ export class MyToken extends DeployableOP_20 {
     public airdrop(calldata: Calldata): BytesWriter {
         this.onlyDeployer(Blockchain.tx.sender);
 
-        const addressAndAmount: AddressMap<u256> = calldata.readAddressMapU256();
+        const addressAndAmount: AddressMap<u256> = calldata.readAddressMapU256();    
         const addresses: Address[] = addressAndAmount.keys();
 
         let totalAirdropped: u256 = u256.Zero;
